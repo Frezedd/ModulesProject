@@ -29,7 +29,7 @@ fs.readFile("myFirst.js", "utf8", (err, data)=>{
     console.log(data)
 })
 
-// server http
+// server http, http method
 let http = require("http");
 console.log(http);
 
@@ -62,6 +62,19 @@ let server=http.createServer (function requestListener(req,res) {
 server.listen(7897, function(){
     console.log("listing");
 }); 
+
+
+let myServer=http.createserver((req, res)=>{
+    console.log(req);
+    console.log(res);
+    res.write("");
+    res.end("");
+});
+myServer.listen(1234,()=>{
+    console.log("server running on port 1234");
+}); 
+// localhost1234
+
 
 module.exports.hello = true; // Exported from require of module
 exports = { hello: false };  // Not exported, only available in the module
